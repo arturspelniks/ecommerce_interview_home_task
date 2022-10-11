@@ -34,8 +34,7 @@ public class Trn2msgApplication implements CommandLineRunner {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			logService.log("ERROR: Transaction file name cannot be empty.");
 		} catch (Exception e) {
-			logService.log(String.format("ERROR: Unable to convert file due to error %s", e.getMessage()));
-			e.printStackTrace();
+			logService.error("ERROR: Unable to convert file due to error.", e);
 		}
 
 		logService.log("End of program execution");
